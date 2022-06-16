@@ -2,6 +2,8 @@
 
 Simple gaming room-based messaging API.
 
+Based on guidance from https://www.crowdbotics.com/blog/how-to-build-a-rest-api-with-koajs
+
 ## Functionality
 
 * Create room and get back randomly generated room code.
