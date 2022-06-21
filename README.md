@@ -16,14 +16,27 @@ Based on guidance from https://www.crowdbotics.com/blog/how-to-build-a-rest-api-
 
 ## Endpoints
 
-* `/rooms`
-  * POST
-    * creates room
-    * returns `{ roomId: string }`
-* `/rooms/{roomId}`
-  * POST
-    * creates message
-    * accepts `{type: string, payload: object}`
-  * GET
-    * gets latest message and deletes it
-    * returns `{type: string, payload: object}`
+* `POST /rooms`
+  * creates room
+  * returns `{ roomId: string }`
+* `POST /rooms/{roomId}`
+  * creates message in the given room
+  * accepts `{type: string, payload: object}`
+* `GET /rooms/{roomId}`
+  * gets latest message in the given room
+  * returns `{type: string, payload: object}`
+* `GET /rooms/{roomId}/{type}`
+  * gets latest message in the given room if it matches the given type
+  * side-effectually deletes the message in the given room if it matched the given type
+
+
+## Usage in RPGMaker XP (Ruby Game Scripting System)
+
+### Posting Data
+
+* `responseData = pbPostData(url, requestData)`
+  * `url` is a string
+  * `requestData` and `responseData` are each a hash mapping string to string
+* `responseData = pbDownloadData(url)`
+  * `url` is a string
+  * `responseData` is a hash mapping string to string

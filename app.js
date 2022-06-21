@@ -11,5 +11,12 @@ app.use(koaBody());
 
 app.use(rooms.routes());
 
+/*
+app.use(async (ctx, next) => {
+    console.log('API call', ctx);
+    next();
+});
+//*/
+
 app.listen(3000);
 
