@@ -14,7 +14,7 @@ router.post('/rooms', (ctx, next) => {
     next();
 });
 
-// Update the message in a given from
+// Update the message in a given room
 
 router.post('/rooms/:roomId', (ctx, next) => {
     const { roomId } = ctx.params;
@@ -35,13 +35,22 @@ router.post('/rooms/:roomId', (ctx, next) => {
     next();
 });
 
-// Get the message in a given room and delete it if it existed
+// Get a message in a given room of a given type
+
+router.get('/rooms/check/:roomId/:type', (ctx, next) => {
+    // returns the message in the room of the given type, if it exists
+    const { roomId, type } = ctx.params;
+    ctx.body = messageStore.checkMessage(roomId, type);
+    next();
+});
+
+// Take a message in a given room of a given type (side-effectually removing it)
 
 router.get('/rooms/:roomId/:type', (ctx, next) => {
     // returns the message in the room of the given type, if it exists, and then deletes it
     const { roomId, type } = ctx.params;
     ctx.body = messageStore.removeMessage(roomId, type);
-    console.log('\tbody', ctx.body);
+    //console.log('\tbody', ctx.body);
     next();
 });
 

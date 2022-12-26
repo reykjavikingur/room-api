@@ -40,3 +40,12 @@ Based on guidance from https://www.crowdbotics.com/blog/how-to-build-a-rest-api-
 * `responseData = pbDownloadData(url)`
   * `url` is a string
   * `responseData` is a hash mapping string to string
+
+
+## Roadmap
+
+It is becoming clear that the following use cases will be valuable in a future iteration:
+
+* the ability to just check whether an object of a particular type is on the server but not necessarily delete (so explicit delete)
+* the differentiation of sender and receiver of data, so sender can check if its sent data is still there, whereas receiver can "watch" for incoming updates
+* the ability to queue multiple items of same type so sender can send multiples that the receiver can receive in sequence

@@ -12,6 +12,21 @@ class MessageStore {
         data[roomId][type] = message;
     }
 
+    checkMessage(roomId, type) {
+        if (data.hasOwnProperty(roomId)) {
+            if (data[roomId].hasOwnProperty(type)) {
+                const message = data[roomId][type];
+                return message;
+            }
+            else {
+                return EMPTY_MESSAGE;
+            }
+        }
+        else {
+            return EMPTY_MESSAGE;
+        }
+    }
+
     removeMessage(roomId, type) {
         if (data.hasOwnProperty(roomId)) {
             if (data[roomId].hasOwnProperty(type)) {
