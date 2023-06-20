@@ -22,8 +22,8 @@ Based on guidance from https://www.crowdbotics.com/blog/how-to-build-a-rest-api-
 * `POST /rooms/{roomId}`
   * creates message in the given room
   * accepts `{type: string, payload: object}`
-* `GET /rooms/{roomId}`
-  * gets latest message in the given room
+* `GET /rooms/check/{roomId}/{type}`
+  * gets message in the given room of the given type, if it exists
   * returns `{type: string, payload: object}`
 * `GET /rooms/{roomId}/{type}`
   * gets latest message in the given room if it matches the given type
